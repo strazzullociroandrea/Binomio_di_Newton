@@ -3,7 +3,7 @@ const esponente = document.getElementById("esponente");
 const risultato = document.getElementById("risultato");
 
 invia.onclick = () => {
-  if (esponente.value === "" || esponente.value < 0) {
+  if (esponente.value === "" || esponente.value < 0 || esponente.value > 9) {
     esponente.style.borderColor = "red";
     return;
   } else {
