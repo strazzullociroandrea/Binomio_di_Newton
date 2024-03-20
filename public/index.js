@@ -9,7 +9,7 @@ invia.onclick = () => {
   } else {
     esponente.style.borderColor = "";
   }
-  fetch("/calcola", {
+  fetch("/matematica/calcola", {
     method: "POST",
     headers: {
       "content-type": "application/json",

@@ -60,9 +60,9 @@ const calcolaGenerale = async (esponente) => {
   return result;
 };
 
-app.use("/", express.static(path.join(__dirname, "public")));
+app.use("/matematica", express.static(path.join(__dirname, "public")));
 
-app.post("/calcola", (request, response) => {
+app.post("/matematica/calcola", (request, response) => {
   const { esponente } = request.body;
   calcolaGenerale(parseInt(esponente)).then((res) => {
     response.json({ result: res });
