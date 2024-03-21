@@ -32,8 +32,11 @@ invia.onclick = () => {
       let tartagliaHTML = "";
       tartaglia.forEach((row) => {
         tartagliaHTML += "<div><p>";
-        row.forEach((element) => {
-          tartagliaHTML +=  element;
+        row.forEach((element,index) => {
+          if(index < row.length-1)
+            tartagliaHTML +=  element + " ";
+          else 
+            tartagliaHTML +=  element 
         });
         tartagliaHTML += "</p></div>";
       });
