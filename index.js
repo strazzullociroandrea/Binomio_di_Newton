@@ -60,31 +60,37 @@ const calcolaGenerale = async (esponente) => {
   return result;
 };
 const generaTriangoloTartaglia = (esponente, array = [[1], [1, 1]]) => {
-  if (parseInt(esponente) === 1) {
-    return array.pop();
-  } else if (parseInt(esponente) === 2) {
-    return array;
-  } else if (parseInt(esponente) > 2) {
-    for (let i = 2; i < esponente; i++) {
-      const riga = [1];
-      for (let j = 1; j < i; j++) {
-        riga.push(array[i - 1][j - 1] + array[i - 1][j]);
+  return new Promise((resolve,reject)=>{
+    if (parseInt(esponente) === 1) {
+      resolve(array.pop());
+    } else if (parseInt(esponente) === 2) {
+      resolve(array);
+    } else if (parseInt(esponente) > 2) {
+      for (let i = 2; i < esponente; i++) {
+        const riga = [1];
+        for (let j = 1; j < i; j++) {
+          riga.push(array[i - 1][j - 1] + array[i - 1][j]);
+        }
+        riga.push(1);
+        array.push(riga);
       }
-      riga.push(1);
-      array.push(riga);
+      resolve(array);
     }
-    return array;
-  }
-  return undefined;
+    resolve(undefined);
+  });
+  
 };
 app.use("/matematica", express.static(path.join(__dirname, "public")));
 
 app.post("/matematica/calcola", (request, response) => {
   const { esponente } = request.body;
   calcolaGenerale(parseInt(esponente)).then((res) => {
-    response.json({ result: res });
+    generaTriangoloTartaglia(esponente).then(tartaglia=>{
+      response.json({ result: {res: res, tartaglia: tartaglia} });
+    })
   });
 });
+
 
 const server = http.createServer(app);
 server.listen(10300, () => {

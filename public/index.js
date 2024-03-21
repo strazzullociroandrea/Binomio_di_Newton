@@ -1,7 +1,8 @@
 const invia = document.getElementById("invia");
 const esponente = document.getElementById("esponente");
 const risultato = document.getElementById("risultato");
-
+const tartaglia = document.getElementById("tartaglia");
+  
 invia.onclick = () => {
   if (esponente.value === "" || esponente.value < 0 || esponente.value > 9) {
     esponente.style.borderColor = "red";
@@ -23,26 +24,37 @@ invia.onclick = () => {
     })
     .then((response) => {
       esponente.value = "";
+      //generazione view risultato
       let data = "";
-      const result = response.result;
+      const {res,tartaglia} = response.result;
       let isExponent = false;
-      for (let i = 0; i < result.length; i++) {
-        if (result[i] === "^") {
+      for (let i = 0; i < res.length; i++) {
+        if (res[i] === "^") {
           isExponent = true;
           data += "<sup>";
         } else if (isExponent) {
-          data += result[i] + "</sup>";
+          data += res[i] + "</sup>";
           isExponent = false;
         } else if (
-          result[i] === "1" &&
-          (result[i + 1] === "a" || result[i + 1] === "b")
+          res[i] === "1" &&
+          (res[i + 1] === "a" || res[i + 1] === "b")
         ) {
-          data += result[i + 1];
+          data += res[i + 1];
           i++;
         } else {
-          data += result[i];
+          data += res[i];
         }
       }
       risultato.innerHTML = data;
+      //generazione view tartaglia
+      let tar = "";
+      tartaglia.forEach(riga=>{
+        tar += "<div>";
+        riga.forEach(element=>{
+          tar += "<p>"+element+"</p>";
+        })
+        tar += "</div>"
+      })
+      tartaglia.innerHTML = tar;
     });
 };
