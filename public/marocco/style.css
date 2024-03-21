@@ -1,0 +1,32 @@
+body {
+    font-family: "Lexend", system-ui;
+    margin: 0;
+    padding: 0;
+    background-color: #101415;
+}
+
+h1 {
+    font-family: "Lexend Deca", sans-serif;
+    font-size: 4.7em;
+}
+
+h2 {
+    font-family: "Lexend", sans-serif;
+    font-weight: bold;
+}
+
+h3 {
+    font-family: "Lexend", system-ui;
+    font-size: 1.3em;
+}
+
+.btn-primary {
+    background-color: #053DEB !important;
+    border: none !important;
+}
+
+.btn-info {
+    background-color: #7f43c3 !important;
+    color: #ffffff !important;
+    border: none !important;
+}
