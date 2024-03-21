@@ -68,4 +68,4 @@ submit.onclick = () => {
     let n = parseInt(esponente.value);
     result.innerHTML = binomialTheorem('a', 'b', n);
     content.innerHTML = displayPascalTriangle(n);
-}st
+}
