@@ -59,7 +59,24 @@ const calcolaGenerale = async (esponente) => {
   }
   return result;
 };
-
+const generaTriangoloTartaglia = (esponente, array = [[1], [1, 1]]) => {
+  if (parseInt(esponente) === 1) {
+    return array.pop();
+  } else if (parseInt(esponente) === 2) {
+    return array;
+  } else if (parseInt(esponente) > 2) {
+    for (let i = 2; i < esponente; i++) {
+      const riga = [1];
+      for (let j = 1; j < i; j++) {
+        riga.push(array[i - 1][j - 1] + array[i - 1][j]);
+      }
+      riga.push(1);
+      array.push(riga);
+    }
+    return array;
+  }
+  return undefined;
+};
 app.use("/matematica", express.static(path.join(__dirname, "public")));
 
 app.post("/matematica/calcola", (request, response) => {
