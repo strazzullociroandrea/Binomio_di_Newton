@@ -66,7 +66,7 @@ const generaTriangoloTartaglia = (esponente, array = [[1], [1, 1]]) => {
     } else if (parseInt(esponente) === 2) {
       resolve(array);
     } else if (parseInt(esponente) > 2) {
-      for (let i = 2; i < esponente; i++) {
+      for (let i = 2; i <= esponente; i++) {
         const riga = [1];
         for (let j = 1; j < i; j++) {
           riga.push(array[i - 1][j - 1] + array[i - 1][j]);
