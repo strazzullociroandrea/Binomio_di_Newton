@@ -4,7 +4,7 @@ const risultato = document.getElementById("risultato");
 const tartagliaOutput = document.getElementById("tartaglia");
 
 invia.onclick = () => {
-  if (esponente.value === "" || esponente.value < 1 || esponente.value > 9 || isNaN(parseInt(esponente.value))) {
+  if (esponente.value === "" || esponente.value < 1  || isNaN(parseInt(esponente.value))) {
     esponente.style.borderColor = "red";
     return;
   } else {
