@@ -31,11 +31,11 @@ invia.onclick = () => {
       const tartaglia = response.result.tartaglia;
       let tartagliaHTML = "";
       tartaglia.forEach((row) => {
-        tartagliaHTML += "<div>";
+        tartagliaHTML += "<div><p>";
         row.forEach((element) => {
-          tartagliaHTML += "<p>" + element + "</p>";
+          tartagliaHTML +=  element;
         });
-        tartagliaHTML += "</div>";
+        tartagliaHTML += "</p></div>";
       });
       tartagliaOutput.innerHTML = tartagliaHTML;
     })
