@@ -25,7 +25,7 @@ invia.onclick = () => {
       esponente.value = "";
       // Generazione view risultato
       let data = response.result.res;
-      risultato.innerHTML = data.replace(/\^(\d+)/g, "<sup>$1</sup>");
+      risultato.innerHTML = data.replace(/\^(\d+)/g, "<sup>$1</sup>").replaceAll("1a","a").replaceAll("1b","b");
 
       // Generazione view tartaglia
       const tartaglia = response.result.tartaglia;
