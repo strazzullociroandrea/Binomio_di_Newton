@@ -17,7 +17,7 @@ function binomialTheorem(a, b, n) {
         let bPower = i;
         formula += coefficient !== 1 ? `${coefficient}·` : '';
         formula += aPower > 0 ? (aPower > 1 ? `${a}<sup>${aPower}</sup>` : `${a}`) : '';
-        formula += bPower > 0 ? (aPower > 0 ? `·${b}` + (bPower > 1 ? `<sup>${bPower}</sup>` : '') : `${b}`) : '';
+        formula += bPower > 0 ? (aPower > 0 ? `·${b}` + (bPower > 1 ? `<sup>${bPower}</sup>` : '') : `${b}` + (bPower > 1 ? `<sup>${bPower}</sup>` : '')) : '';
         if (i < n) {
             formula += ' + ';
         }
@@ -33,7 +33,7 @@ function binomialCoefficient(n, k) {
     return result;
 }
 
-function drawPascalTriangle(n) {
+function drawTartagliaTriangle(n) {
     let triangle = [];
     for (let i = 0; i <= n; i++) {
         let row = [];
@@ -45,11 +45,11 @@ function drawPascalTriangle(n) {
     return triangle;
 }
 
-function displayPascalTriangle(n) {
+function displayTartagliaTriangle(n) {
     if (n < 0) {
         return "<p>Il numero deve essere >= 0</p>";
     }
-    let triangle = drawPascalTriangle(n);
+    let triangle = drawTartagliaTriangle(n);
     let table = '<div class="table-responsive"><table class="table table-borderless table-dark text-center">';
     for (let i = 0; i < triangle.length; i++) {
         let row = '<tr>';
@@ -67,5 +67,5 @@ function displayPascalTriangle(n) {
 submit.onclick = () => {
     let n = parseInt(esponente.value);
     result.innerHTML = binomialTheorem('a', 'b', n);
-    content.innerHTML = displayPascalTriangle(n);
+    content.innerHTML = displayTartagliaTriangle(n);
 }
