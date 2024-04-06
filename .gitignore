@@ -131,3 +131,5 @@ dist
 .replit
 replit.nix
 package-lock.json
+.local
+node_modules
