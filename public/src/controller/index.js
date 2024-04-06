@@ -1,17 +1,17 @@
+import {visualizza} from "../view/view.js";
 const invia = document.getElementById("invia");
 const esponente = document.getElementById("esponente");
-const risultato = document.getElementById("risultato");
-const tartagliaOutput = document.getElementById("tartaglia");
+
 
 invia.onclick = () => {
-  if (esponente.value === "" || esponente.value < 1  || isNaN(parseInt(esponente.value))) {
+  if (esponente.value === "" || isNaN(parseInt(esponente.value))) {
     esponente.style.borderColor = "red";
-    return;
   } else {
     esponente.style.borderColor = "";
+    visualizza(esponente.value);
   }
-
-  fetch("/matematica/calcola", {
+  /*
+  fetch("/calcola", {
     method: "POST",
     headers: {
       "content-type": "application/json",
@@ -24,8 +24,8 @@ invia.onclick = () => {
     .then((response) => {
       esponente.value = "";
       // Generazione view risultato
-      let data = response.result.res;
-      risultato.innerHTML = data.replace(/\^(\d+)/g, "<sup>$1</sup>").replaceAll("1a","a").replaceAll("1b","b");
+      let data = response.result.newton;
+      risultato.innerHTML = data.replace(/\^(\d+)/g, "<sup>$1</sup>");
 
       // Generazione view tartaglia
       const tartaglia = response.result.tartaglia;
@@ -43,4 +43,5 @@ invia.onclick = () => {
       tartagliaOutput.innerHTML = tartagliaHTML;
     })
     .catch((error) => console.error("Errore durante la richiesta:", error));
+     */
 };
