@@ -53,4 +53,8 @@ const calcolaGenerale = async (esponente) => {
     return result;
   };
 
-  module.exports = calcolaGenerale;
+  module.exports = {
+    calcoloCoefficiente,
+    calcoloSingolo,
+    calcolaGenerale
+  };
