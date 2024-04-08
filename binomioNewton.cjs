@@ -8,13 +8,13 @@
  * @returns 
  */
 const calcoloCoefficiente = (n, k) => {
-    return new Promise((resolve, reject) => {
-        let coefficiente = 1;
-        for (let i = 0; i < k; i++) {
-            coefficiente *= (n - i) / (i + 1);
-        }
-        resolve(coefficiente);
-    });
+  return new Promise((resolve, reject) => {
+    let coefficiente = 1;
+    for (let i = 0; i < k; i++) {
+      coefficiente *= (n - i) / (i + 1);
+    }
+    resolve(coefficiente);
+  });
 };
 
 /**
@@ -26,10 +26,10 @@ const calcoloCoefficiente = (n, k) => {
  * @returns 
  */
 const calcoloSingolo = async (n, k, a, b) => {
-    let result = await calcoloCoefficiente(n, k);
-    result = parseFloat(result) + a + b;
-    return result.toString();
-  };
+  let result = await calcoloCoefficiente(n, k);
+  result = parseFloat(result) + a + b;
+  return result.toString();
+};
 
 /**
  * Funzione per calcolare il risultato del binomio di Newton
@@ -37,24 +37,24 @@ const calcoloSingolo = async (n, k, a, b) => {
  * @returns 
  */
 const calcolaGenerale = async (esponente) => {
-    let result = "";
-    //ripetuto pre esponente!
-    for (let i = 0; i <= parseInt(esponente); i++) {
-      //calcolo i singoli esponenti di a e b
-      let a = "a^" + (esponente - i);
-      let b = i != 1 ? "b^" + i : "b";
-      let rs = await calcoloSingolo(parseInt(esponente), i, a, b);
-      if (i < parseInt(esponente)) {
-        result += rs + " + ";
-      } else {
-        result += rs;
-      }
+  let result = "";
+  //ripetuto pre esponente!
+  for (let i = 0; i <= parseInt(esponente); i++) {
+    //calcolo i singoli esponenti di a e b
+    let a = "a^" + (esponente - i);
+    let b = i != 1 ? "b^" + i : "b";
+    let rs = await calcoloSingolo(parseInt(esponente), i, a, b);
+    if (i < parseInt(esponente)) {
+      result += rs + " + ";
+    } else {
+      result += rs;
     }
-    return result;
-  };
+  }
+  return result;
+};
 
-  module.exports = {
-    calcoloCoefficiente,
-    calcoloSingolo,
-    calcolaGenerale
-  };
+module.exports = {
+  calcoloCoefficiente,
+  calcoloSingolo,
+  calcolaGenerale
+};
