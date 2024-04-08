@@ -13,19 +13,16 @@ import { calcoloGenerale } from '../binomioN/calewtoncoloGenerale';
 
 describe("Testing calcoloGenerale function", function () {
     it("should calculate correctly for given exponent", async function () {
-       
         const expectedResults = {
             0: "a^3 + 3ab + b^3",
             1: "a^2 + 2ab + b^2",
             2: "a + b"
-        };
 
-        for (const exponent in expectedResults) {
-            if (Object.hasOwnProperty.call(expectedResults, exponent)) {
-                const expectedResult = expectedResults[exponent];
-                const result = await calcoloGenerale(exponent);
-                expect(result).to.equal(expectedResult);
-            }
+        };
+        for (const exponent of Object.keys(expectedResults)) {
+            const expectedResult = expectedResults[exponent];
+            const result = await calcoloGenerale(exponent);
+            expect(result).to.equal(expectedResult);
         }
     });
 });
