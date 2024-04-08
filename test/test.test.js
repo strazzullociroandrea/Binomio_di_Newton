@@ -9,7 +9,7 @@ describe("Testing binomio di Newton e triangolo di Tartaglia", function () {
     });
 });
 
-import { calcoloGenerale } from '../binomioNewton/calewtoncoloGenerale';
+import { calcoloGenerale } from '../binomioNewton.cjs';
 
 describe("Testing calcoloGenerale function", function () {
     it("should calculate correctly for given exponent", async function () {
