@@ -15,9 +15,11 @@ export const visualizza = async(esponente) =>{
         let html = "";
         tartaglia.forEach(res =>{
             let tdt = "";
-            res.forEach(ris =>{
-                tdt += td.replace("%INFO",ris);
-            })
+            if(res.length > 0){
+                res.forEach(ris =>{
+                    tdt += td.replace("%INFO",ris);
+                })
+            }
             html += tr.replace("%INFO",tdt);
         });
         risultatoTartaglia.innerHTML = html;

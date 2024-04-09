@@ -3,7 +3,7 @@ const http = require("http");
 const app = express();
 const path = require("path");
 const bodyParser = require("body-parser");
-const {calcolaGenerale} = require("./binomioNewton.cjs");
+const {calcolaGenerale} = require("./binomioNewton.js");
 const generaTriangoloTartaglia = require("./tartaglia.js");
 app.use(bodyParser.json());
 app.use(
