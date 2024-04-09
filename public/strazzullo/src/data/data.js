@@ -4,7 +4,7 @@
  * @returns 
  */
 export const calcola = async(esponente) =>{
-    let resp = await fetch("/calcola", {
+    let resp = await fetch("/matematica/calcola", {
         method: "POST",
         headers: {
           "content-type": "application/json",

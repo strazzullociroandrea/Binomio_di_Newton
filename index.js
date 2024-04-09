@@ -13,9 +13,9 @@ app.use(
 );
 
 
-app.use("/", express.static(path.join(__dirname, "public")));
+app.use("/matematica", express.static(path.join(__dirname, "public")));
 
-app.post("/calcola", async(request, response) => {
+app.post("/matematica/calcola", async(request, response) => {
   let { esponente } = request.body;
   if(esponente !== "" && esponente){
     esponente = parseInt(esponente);
